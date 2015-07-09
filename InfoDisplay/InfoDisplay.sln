@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.Common.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.WeatherService", "InfoDisplay.WeatherService\InfoDisplay.WeatherService.csproj", "{80DA573C-F875-42A5-B900-54002589037F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.Shell", "InfoDisplay.Shell\InfoDisplay.Shell.csproj", "{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{80DA573C-F875-42A5-B900-54002589037F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80DA573C-F875-42A5-B900-54002589037F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80DA573C-F875-42A5-B900-54002589037F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

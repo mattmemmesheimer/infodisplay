@@ -6,7 +6,7 @@ namespace InfoDisplay.WeatherService
 
     public interface IWeatherService
     {
-        Task<WeatherResults> GetWeatherAsync();
+        Task<IWeatherResults> GetWeatherAsync();
     }
 
 }

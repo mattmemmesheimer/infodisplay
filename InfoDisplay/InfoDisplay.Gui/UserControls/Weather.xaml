@@ -6,18 +6,53 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock 
-            Text="{Binding Results.Main.Temperature}" />
+        
+        <StackPanel 
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal">
+            <Button
+                Click="ButtonBase_OnClick"
+                Content="Refresh" />
+            <TextBlock
+                Text="{Binding Status}" />
+        </StackPanel>
+        
         <TextBlock 
             Grid.Row="1"
-            Text="{Binding Results.Main.Humidity}" />
+            Grid.Column="0"
+            Text="Temperature:" />
+
         <TextBlock 
             Grid.Row="2"
+            Grid.Column="0"
+            Text="Humidity:" />
+
+        <TextBlock 
+            Grid.Row="3"
+            Grid.Column="0"
+            Text="Pressure:" />
+
+        <TextBlock 
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{Binding Results.Current.Temperature, StringFormat={}{0} degrees}" />
+        <TextBlock 
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="{Binding Results.Current.Humidity, StringFormat={}{0}%}" />
+        <TextBlock 
+            Grid.Row="3"
+            Grid.Column="1"
             Text="{Binding Results.Main.Pressure}" />
     </Grid>
 </UserControl>

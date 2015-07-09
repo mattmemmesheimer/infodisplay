@@ -90,16 +90,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="InfoDisplayContainer.xaml.cs">
+      <DependentUpon>InfoDisplayContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainModule.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Weather.xaml.cs">
       <DependentUpon>Weather.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\InfoDisplayContainerViewModel.cs" />
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
-    <Page Include="PrismAppShell.xaml">
+    <Page Include="InfoDisplayContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,9 +124,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrismAppShell.xaml.cs">
-      <DependentUpon>PrismAppShell.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

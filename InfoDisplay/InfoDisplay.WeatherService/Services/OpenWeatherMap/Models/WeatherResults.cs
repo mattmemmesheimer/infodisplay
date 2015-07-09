@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using InfoDisplay.Common.Util;
 using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
 using Newtonsoft.Json;
@@ -15,12 +15,13 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _name, value); }
         }
 
-        //[JsonProperty(PropertyName = "weather")]
-        //public List<IWeatherConditions> Conditions
-        //{
-        //    get { return _conditions; }
-        //    set { SetProperty(ref _conditions, value); }
-        //}
+        [JsonProperty(PropertyName = "weather")]
+        [JsonConverter(typeof(ConcreteTypeConverter<WeatherConditions[]>))]
+        public IWeatherConditions[] Conditions
+        {
+            get { return _conditions; }
+            set { SetProperty(ref _conditions, value); }
+        }
 
         [JsonProperty(PropertyName = "main")]
         [JsonConverter(typeof(ConcreteTypeConverter<Weather>))]
@@ -31,7 +32,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
         }
 
         private string _name;
-        private List<IWeatherConditions> _conditions;
+        private IWeatherConditions[] _conditions;
         private IWeather _current;
     }
 }

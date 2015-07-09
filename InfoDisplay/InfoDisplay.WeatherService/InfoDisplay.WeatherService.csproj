@@ -53,11 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWeatherService.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Weather.cs" />
-    <Compile Include="Models\WeatherResults.cs" />
+    <Compile Include="Models\IWeather.cs" />
+    <Compile Include="Models\IWeatherConditions.cs" />
+    <Compile Include="Models\IWeatherResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\OpenWeatherMapService.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\Weather.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\WeatherConditions.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\WeatherResults.cs" />
+    <Compile Include="Services\OpenWeatherMap\OpenWeatherMapService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InfoDisplay.Common\InfoDisplay.Common.csproj">

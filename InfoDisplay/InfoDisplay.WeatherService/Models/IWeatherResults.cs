@@ -7,7 +7,7 @@ namespace InfoDisplay.WeatherService.Models
     {
         string Name { get; set; }
 
-        //List<IWeatherConditions> Conditions { get; set; }
+        IWeatherConditions[] Conditions { get; set; }
 
         IWeather Current { get; set; }
     }
