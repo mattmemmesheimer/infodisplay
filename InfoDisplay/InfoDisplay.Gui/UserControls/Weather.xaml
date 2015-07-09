@@ -40,7 +40,7 @@
         <TextBlock 
             Grid.Row="3"
             Grid.Column="0"
-            Text="Pressure:" />
+            Text="Conditions:" />
 
         <TextBlock 
             Grid.Row="1"
@@ -50,9 +50,10 @@
             Grid.Row="2"
             Grid.Column="1"
             Text="{Binding Results.Current.Humidity, StringFormat={}{0}%}" />
-        <TextBlock 
+        <ListBox 
             Grid.Row="3"
             Grid.Column="1"
-            Text="{Binding Results.Main.Pressure}" />
+            DisplayMemberPath="Description"
+            ItemsSource="{Binding Results.Conditions}" />
     </Grid>
 </UserControl>
