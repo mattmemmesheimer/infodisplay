@@ -1,23 +1,15 @@
 ﻿using System.Windows;
+using InfoDisplay.Common.Network;
+using InfoDisplay.Gui.UserControls;
+using InfoDisplay.Gui.ViewModels;
+using InfoDisplay.WeatherService;
+using InfoDisplay.WeatherService.Services;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
 namespace InfoDisplay.Gui
 {
     class Bootstrapper : UnityBootstrapper
     {
-        /// <summary>
-        /// Creates the shell or main window of the application.
-        /// </summary>
-        /// <returns>
-        /// The shell of the application.
-        /// </returns>
-        /// <remarks>
-        /// If the returned instance is a <see cref="T:System.Windows.DependencyObject"/>, the
-        ///             <see cref="T:Microsoft.Practices.Prism.Bootstrapper"/> will attach the default <see cref="T:Microsoft.Practices.Prism.Regions.IRegionManager"/> of
-        ///             the application in its <see cref="F:Microsoft.Practices.Prism.Regions.RegionManager.RegionManagerProperty"/> attached property
-        ///             in order to be able to add regions by using the <see cref="F:Microsoft.Practices.Prism.Regions.RegionManager.RegionNameProperty"/>
-        ///             attached property from XAML.
-        /// </remarks>
         protected override DependencyObject CreateShell()
         {
             return Container.Resolve<PrismAppShell>();
@@ -30,10 +22,14 @@ namespace InfoDisplay.Gui
             Application.Current.MainWindow.Show();
         }
 
-        protected override void ConfigureModuleCatalog()
+        protected override void ConfigureContainer()
         {
-            base.ConfigureModuleCatalog();
-            ModuleCatalog.AddModule(null);
+            base.ConfigureContainer();
+
+            Container.RegisterType<INetworkService, HttpNetworkService>();
+            Container.RegisterType<IWeatherService, OpenWeatherMapService>();
+
+            Container.RegisterType<IWeatherViewModel, WeatherViewModel>();
         }
     }
 }

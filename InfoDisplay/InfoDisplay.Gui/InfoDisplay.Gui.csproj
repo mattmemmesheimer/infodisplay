@@ -91,7 +91,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="UserControls\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Weather.xaml.cs">
+      <DependentUpon>Weather.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\IWeatherViewModel.cs" />
+    <Compile Include="ViewModels\WeatherViewModel.cs" />
     <Page Include="PrismAppShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Weather.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +142,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfoDisplay.Common\InfoDisplay.Common.csproj">
+      <Project>{82dab698-27cd-404b-832e-3ba24f5ec867}</Project>
+      <Name>InfoDisplay.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfoDisplay.WeatherService\InfoDisplay.WeatherService.csproj">
+      <Project>{80da573c-f875-42a5-b900-54002589037f}</Project>
+      <Name>InfoDisplay.WeatherService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
