@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
+using System.Windows.Input;
+using InfoDisplay.Gui.Command;
 using InfoDisplay.WeatherService;
 using InfoDisplay.WeatherService.Models;
-using InfoDisplay.WeatherService.Services.OpenWeatherMap.Models;
 using Microsoft.Practices.Prism.Mvvm;
 
 namespace InfoDisplay.Gui.ViewModels
@@ -23,10 +24,14 @@ namespace InfoDisplay.Gui.ViewModels
             set { SetProperty(ref _status, value); }
         }
 
+        public ICommand RefreshCommand { get; private set; }
+
         public WeatherViewModel(IWeatherService weatherService)
         {
             _weatherService = weatherService;
             Status = "Idle";
+
+            RefreshCommand = new AwaitableDelegateCommand(GetWeatherAsync);
         }
 
         public async Task GetWeatherAsync()

@@ -92,6 +92,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Command\AwaitableDelegateCommand.cs" />
+    <Compile Include="Command\DelegateCommand.cs" />
+    <Compile Include="Command\IAsyncCommand.cs" />
+    <Compile Include="Command\IRaiseCanExecuteChanged.cs" />
     <Compile Include="Converters\WeatherConditionIconConverter.cs" />
     <Compile Include="InfoDisplayContainer.xaml.cs">
       <DependentUpon>InfoDisplayContainer.xaml</DependentUpon>

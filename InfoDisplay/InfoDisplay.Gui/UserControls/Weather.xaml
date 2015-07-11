@@ -40,7 +40,8 @@
             <Button
                 Grid.Column="2"
                 Height="25"
-                VerticalAlignment="Top">
+                VerticalAlignment="Top"
+                Command="{Binding RefreshCommand}">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Cursor="Hand" Background="Transparent">
@@ -53,5 +54,9 @@
             </Button>
             
         </Grid>
+
+        <TextBlock
+            Grid.Row="1"
+            Text="{Binding Status}" />
     </Grid>
 </UserControl>
