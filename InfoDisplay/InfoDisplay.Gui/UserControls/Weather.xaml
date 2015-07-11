@@ -21,9 +21,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="25" />
             </Grid.ColumnDefinitions>
             <Viewbox>
                 <TextBlock
+                    Margin="6,0"
                     Foreground="White"
                     Text="{Binding Results.Current.Temperature, FallbackValue=0}" />
             </Viewbox>
@@ -34,6 +36,21 @@
                     Converter={StaticResource WeatherConditionIconConverter}, 
                     FallbackValue={StaticResource WeatherDayClearIcon}}"
                 Color="White" />
+            
+            <Button
+                Grid.Column="2"
+                Height="25"
+                VerticalAlignment="Top">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid Cursor="Hand" Background="Transparent">
+                            <userControls:VectorImage
+                                Color="White"
+                                Template="{StaticResource RefreshIcon}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             
         </Grid>
     </Grid>

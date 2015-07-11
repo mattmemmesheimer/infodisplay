@@ -110,6 +110,14 @@
     <Compile Include="ViewModels\InfoDisplayContainerViewModel.cs" />
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
+    <Page Include="Assets\Includes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\VectorImages\GeneralImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\VectorImages\WeatherImages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

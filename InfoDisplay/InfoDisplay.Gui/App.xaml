@@ -5,8 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="Assets/VectorImages/WeatherImages.xaml" />
-             </ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Includes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

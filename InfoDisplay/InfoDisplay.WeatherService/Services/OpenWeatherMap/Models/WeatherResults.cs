@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using InfoDisplay.Common.Util;
+﻿using InfoDisplay.Common.Util;
 using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
 using Newtonsoft.Json;

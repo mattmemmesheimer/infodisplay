@@ -4,7 +4,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/InfoDisplay.Gui;component/Assets/VectorImages/WeatherImages.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/InfoDisplay.Gui;component/Assets/Includes.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
