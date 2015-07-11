@@ -36,7 +36,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
 
         public async Task<IWeatherResults> GetWeatherAsync()
         {
-            var url = GetUrl(WeatherAction.Current, "65856");
+            var url = GetUrl(WeatherAction.Current, "78759");
             var json = await _networkService.GetStringAsync(url);
             return JsonConvert.DeserializeObject<WeatherResults>(json);
         }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using InfoDisplay.Gui.ViewModels;
 
 namespace InfoDisplay.Gui.UserControls
@@ -16,16 +17,16 @@ namespace InfoDisplay.Gui.UserControls
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {     
+        {
+            _viewModel = DataContext as IWeatherViewModel;
+            if (_viewModel == null)
+            {
+                throw new Exception("Missing IWeatherViewModel");
+            }
+            await _viewModel.GetWeatherAsync();
         }
 
-        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var viewModel = DataContext as IWeatherViewModel;
-            if (viewModel != null)
-            {
-                await viewModel.GetWeatherAsync();
-            }      
-        }
+
+        private IWeatherViewModel _viewModel;
     }
 }
