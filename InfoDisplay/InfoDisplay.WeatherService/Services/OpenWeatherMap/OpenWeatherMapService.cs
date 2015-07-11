@@ -20,15 +20,6 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
             Forecast
         }
 
-        private string ServiceUrl
-        {
-            get
-            {
-                return string.Format("{0}?APPID={1}&units={2}", ServiceBaseUrl, ServiceApiKey,
-                    ServiceUnits);
-            }
-        }
-
         public OpenWeatherMapService(INetworkService networkService)
         {
             _networkService = networkService;

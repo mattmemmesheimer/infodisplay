@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:userControls="clr-namespace:InfoDisplay.Gui.UserControls"
+             xmlns:converters="clr-namespace:InfoDisplay.Gui.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <converters:WeatherConditionIconConverter x:Key="WeatherConditionIconConverter" />
+    </UserControl.Resources>
     
     <Grid Background="LightSlateGray">
         <Grid.RowDefinitions>
@@ -25,7 +30,9 @@
             
             <userControls:VectorImage 
                 Grid.Column="1"
-                Template="{StaticResource WeatherSunnyIcon}"
+                Template="{Binding Results.Conditions[0].Condition, 
+                    Converter={StaticResource WeatherConditionIconConverter}, 
+                    FallbackValue={StaticResource WeatherDayClearIcon}}"
                 Color="White" />
             
         </Grid>

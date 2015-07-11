@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:userControls="clr-namespace:InfoDisplay.Gui.UserControls">
     
-    <!-- Weather sunny icon -->
-    <ControlTemplate x:Key="WeatherSunnyIcon" TargetType="userControls:VectorImage">
+    <!-- Day clear icon -->
+    <ControlTemplate x:Key="WeatherDayClearIcon" TargetType="userControls:VectorImage">
         <Viewbox>
             <Canvas Width="512" Height="512">
                 <Path
@@ -24,5 +24,39 @@
             </Canvas>
         </Viewbox>
     </ControlTemplate>
-    
+
+    <!-- Night clear icon -->
+    <ControlTemplate x:Key="WeatherNightClearIcon" TargetType="userControls:VectorImage">
+        <Viewbox>
+            <Canvas Width="512" Height="512">
+                <Path
+                    Fill="{TemplateBinding Color}"
+                    Data="M349.852,343.15c-49.876,49.916-131.083,49.916-181,0c-49.916-49.917-49.916-131.125,0-181.021
+	                    c13.209-13.187,29.312-23.25,47.832-29.812c5.834-2.042,12.293-0.562,16.625,3.792c4.376,4.375,5.855,10.833,3.793,16.625
+	                    c-12.542,35.375-4,73.666,22.249,99.917c26.209,26.228,64.501,34.75,99.917,22.25c5.792-2.062,12.271-0.583,16.625,3.792
+	                    c4.376,4.333,5.834,10.812,3.771,16.625C373.143,313.838,363.06,329.941,349.852,343.15z M191.477,184.754
+	                    c-37.438,37.438-37.438,98.354,0,135.771c40,40.021,108.125,36.417,143-8.167c-35.959,2.25-71.375-10.729-97.75-37.084
+	                    c-26.375-26.354-39.333-61.771-37.084-97.729C196.769,179.796,194.039,182.192,191.477,184.754z" />
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
+    <!-- Day cloudy icon -->
+    <ControlTemplate x:Key="WeatherDayCloudyIcon" TargetType="userControls:VectorImage">
+        <Viewbox>
+            <Canvas Width="512" Height="512">
+                <Path
+                    Fill="{TemplateBinding Color}"
+                    Data="M400,160c-5.312,0-10.562,0.375-15.792,1.125
+	                    C354.334,120.417,307.188,96,256,96s-98.312,24.417-128.208,65.125C122.562,160.375,117.312,160,112,160C50.25,160,0,210.25,0,272
+	                    c0,61.75,50.25,112,112,112c13.688,0,27.084-2.5,39.709-7.333C180.666,401.917,217.5,416,256,416
+	                    c38.542,0,75.333-14.083,104.291-39.333C372.916,381.5,386.312,384,400,384c61.75,0,112-50.25,112-112
+	                    C512,210.25,461.75,160,400,160z M400,352c-17.125,0-32.916-5.5-45.938-14.667C330.584,365.624,295.624,384,256,384
+	                    c-39.625,0-74.584-18.376-98.062-46.667C144.938,346.5,129.125,352,112,352c-44.188,0-80-35.812-80-80s35.812-80,80-80
+	                    c10.812,0,21.062,2.208,30.438,6.083C163.667,156.667,206.291,128,256,128s92.334,28.667,113.541,70.083
+	                    C378.938,194.208,389.209,192,400,192c44.188,0,80,35.812,80,80S444.188,352,400,352z" />
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
 </ResourceDictionary>
