@@ -96,6 +96,7 @@
     <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="Command\IAsyncCommand.cs" />
     <Compile Include="Command\IRaiseCanExecuteChanged.cs" />
+    <Compile Include="Converters\InverseBoolVisibilityConverter.cs" />
     <Compile Include="Converters\WeatherConditionIconConverter.cs" />
     <Compile Include="InfoDisplayContainer.xaml.cs">
       <DependentUpon>InfoDisplayContainer.xaml</DependentUpon>
@@ -107,6 +108,9 @@
     <Compile Include="UserControls\Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LoadingSpinner.xaml.cs">
+      <DependentUpon>LoadingSpinner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VectorImage.cs" />
     <Compile Include="UserControls\Weather.xaml.cs">
       <DependentUpon>Weather.xaml</DependentUpon>
@@ -115,6 +119,10 @@
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
     <Page Include="Assets\Includes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoadingSpinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,6 +10,8 @@
     
     <UserControl.Resources>
         <converters:WeatherConditionIconConverter x:Key="WeatherConditionIconConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter" />
     </UserControl.Resources>
     
     <Grid Background="LightSlateGray">
@@ -41,7 +43,8 @@
                 Grid.Column="2"
                 Height="25"
                 VerticalAlignment="Top"
-                Command="{Binding RefreshCommand}">
+                Command="{Binding RefreshCommand}"
+                Visibility="{Binding Loading, Converter={StaticResource InverseBoolVisibilityConverter}}">
                 <Button.Template>
                     <ControlTemplate>
                         <Grid Cursor="Hand" Background="Transparent">
@@ -52,11 +55,20 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
-        </Grid>
 
-        <TextBlock
-            Grid.Row="1"
-            Text="{Binding Status}" />
+            <userControls:LoadingSpinner
+                Visibility="{Binding Loading, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                Grid.Column="2"
+                Color="White"
+                InnerCircleRadius="5"
+                OuterCircleRadius="10"
+                Spokes="8"
+                SpokeThickness="3"
+                Width="25"
+                Height="25"
+                Margin="0,2,0,0"
+                VerticalAlignment="Top"/>
+
+        </Grid>
     </Grid>
 </UserControl>

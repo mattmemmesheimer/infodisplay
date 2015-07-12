@@ -15,13 +15,13 @@ namespace InfoDisplay.Gui.ViewModels
             set { SetProperty(ref _results, value); }
         }
 
-        public string Status
+        public bool Loading
         {
             get
             {
-                return _status;
+                return _loading;
             }
-            set { SetProperty(ref _status, value); }
+            set { SetProperty(ref _loading, value); }
         }
 
         public ICommand RefreshCommand { get; private set; }
@@ -29,23 +29,20 @@ namespace InfoDisplay.Gui.ViewModels
         public WeatherViewModel(IWeatherService weatherService)
         {
             _weatherService = weatherService;
-            Status = "Idle";
 
             RefreshCommand = new AwaitableDelegateCommand(GetWeatherAsync);
         }
 
         public async Task GetWeatherAsync()
         {
-            Status = "Loading...";
-
+            Loading = true;
             Results = await _weatherService.GetWeatherAsync();
-
-            Status = "Idle";
+            Loading = false;
         }
 
         private double _temperature;
         private IWeatherService _weatherService;
         private IWeatherResults _results;
-        private string _status;
+        private bool _loading;
     }
 }
