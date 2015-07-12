@@ -32,9 +32,12 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
             return JsonConvert.DeserializeObject<WeatherResults>(json);
         }
 
-        public Task<IForecastResults> GetForecastAsync()
+        public async Task<IForecastResults> GetForecastAsync()
         {
-            throw new NotImplementedException();
+            var url = GetUrl(WeatherAction.Forecast, "78759");
+            url += "&cnt=4";
+            var json = await _networkService.GetStringAsync(url);
+            return JsonConvert.DeserializeObject<ForecastResults>(json);
         }
 
         private string GetUrl(WeatherAction action, string zip)
@@ -46,7 +49,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
                     actionStr = "weather";
                     break;
                 case WeatherAction.Forecast:
-                    actionStr = "forecast";
+                    actionStr = "forecast/daily";
                     break;
             }
             return string.Format("{0}/{1}?APPID={2}&units={3}&zip={4}", ServiceBaseUrl, actionStr,

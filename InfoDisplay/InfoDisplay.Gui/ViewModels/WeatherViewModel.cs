@@ -9,18 +9,21 @@ namespace InfoDisplay.Gui.ViewModels
 {
     public class WeatherViewModel : BindableBase, IWeatherViewModel
     {
-        public IWeatherResults Results
+        public IWeatherResults Current
         {
-            get { return _results; }
-            set { SetProperty(ref _results, value); }
+            get { return _current; }
+            set { SetProperty(ref _current, value); }
+        }
+
+        public IForecastResults Forecast
+        {
+            get { return _forecast; }
+            set { SetProperty(ref _forecast, value); }
         }
 
         public bool Loading
         {
-            get
-            {
-                return _loading;
-            }
+            get { return _loading; }
             set { SetProperty(ref _loading, value); }
         }
 
@@ -36,13 +39,15 @@ namespace InfoDisplay.Gui.ViewModels
         public async Task GetWeatherAsync()
         {
             Loading = true;
-            Results = await _weatherService.GetWeatherAsync();
+            Current = await _weatherService.GetWeatherAsync();
+            Forecast = await _weatherService.GetForecastAsync();
             Loading = false;
         }
 
         private double _temperature;
         private IWeatherService _weatherService;
-        private IWeatherResults _results;
+        private IWeatherResults _current;
+        private IForecastResults _forecast;
         private bool _loading;
     }
 }

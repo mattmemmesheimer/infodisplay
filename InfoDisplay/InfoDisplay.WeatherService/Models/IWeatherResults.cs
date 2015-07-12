@@ -9,7 +9,7 @@ namespace InfoDisplay.WeatherService.Models
 
         IWeatherConditions[] Conditions { get; set; }
 
-        IWeather Current { get; set; }
+        IWeather Main { get; set; }
 
         DateTime Date { get; set; }
     }

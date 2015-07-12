@@ -25,10 +25,10 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 
         [JsonProperty(PropertyName = "main")]
         [JsonConverter(typeof(ConcreteTypeConverter<Weather>))]
-        public IWeather Current
+        public IWeather Main
         {
-            get { return _current; }
-            set { SetProperty(ref _current, value); }
+            get { return _main; }
+            set { SetProperty(ref _main, value); }
         }
 
         [JsonProperty(PropertyName = "dt")]
@@ -41,7 +41,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 
         private string _name;
         private IWeatherConditions[] _conditions;
-        private IWeather _current;
+        private IWeather _main;
         private DateTime _date;
     }
 }

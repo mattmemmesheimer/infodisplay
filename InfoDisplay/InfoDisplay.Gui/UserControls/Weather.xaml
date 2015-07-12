@@ -29,12 +29,12 @@
                 <TextBlock
                     Margin="6,0"
                     Foreground="White"
-                    Text="{Binding Results.Current.Temperature, FallbackValue=0}" />
+                    Text="{Binding Current.Main.Temperature, FallbackValue=0}" />
             </Viewbox>
             
             <userControls:VectorImage 
                 Grid.Column="1"
-                Template="{Binding Results.Conditions[0].Condition, 
+                Template="{Binding Current.Conditions[0].Condition, 
                     Converter={StaticResource WeatherConditionIconConverter}, 
                     FallbackValue={StaticResource WeatherDayClearIcon}}"
                 Color="White" />
@@ -81,7 +81,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Foreground="White"
-                    Text="{Binding Results.Conditions[0].Description, FallbackValue=Sky is clear.}" />
+                    Text="{Binding Current.Conditions[0].Description, FallbackValue=Sky is clear.}" />
             </Viewbox>
         </Grid>
         <Grid

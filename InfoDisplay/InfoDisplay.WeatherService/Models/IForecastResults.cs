@@ -3,7 +3,7 @@
 
     public interface IForecastResults
     {
-        IWeatherResults Days { get; set; }
+        IWeatherResults[] Days { get; set; }
     }
 
 }

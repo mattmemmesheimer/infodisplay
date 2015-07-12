@@ -60,6 +60,7 @@
     <Compile Include="Models\IWeatherConditions.cs" />
     <Compile Include="Models\IWeatherResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\ForecastResults.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\Weather.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\WeatherConditions.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\WeatherResults.cs" />
