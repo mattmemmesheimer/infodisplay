@@ -23,11 +23,29 @@ namespace InfoDisplay.Gui.Converters
                 case WeatherCondition.NightClear:
                     key = "WeatherNightClearIcon";
                     break;
-                case WeatherCondition.DayCloudy:
-                    key = "WeatherDayCloudyIcon";
+                case WeatherCondition.DayFewClouds:
+                    key = "WeatherDayFewCloudsIcon";
+                    break;
+                case WeatherCondition.NightFewClouds:
+                    key = "WeatherNightFewCloudsIcon";
+                    break;
+                case WeatherCondition.ScatteredClouds:
+                    key = "WeatherScatteredCloudsIcon";
+                    break;
+                case WeatherCondition.BrokenClouds:
+                    key = "WeatherBrokenCloudsIcon";
+                    break;
+                case WeatherCondition.Rain:
+                    key = "WeatherRainIcon";
+                    break;
+                case WeatherCondition.Thunderstorm:
+                    key = "WeatherThunderstormIcon";
+                    break;
+                case WeatherCondition.Snow:
+                    key = "WeatherSnowIcon";
                     break;
             }
-            if (key == string.Empty)
+            if (key == string.Empty || !resources.Contains(key))
             {
                 return Binding.DoNothing;
             }
@@ -36,7 +54,7 @@ namespace InfoDisplay.Gui.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return Binding.DoNothing;
         }
     }
 

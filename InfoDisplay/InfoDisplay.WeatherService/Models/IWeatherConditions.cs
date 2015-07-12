@@ -5,7 +5,14 @@
     {
         DayClear,
         NightClear,
-        DayCloudy
+        DayFewClouds,
+        NightFewClouds,
+        ScatteredClouds,
+        BrokenClouds,
+        Rain,
+        Thunderstorm,
+        Snow,
+        Unknown
     };
 
     public interface IWeatherConditions
@@ -15,6 +22,8 @@
         string Main { get; set; }
 
         string Description { get; set; }
+
+        string Icon { get; set; }
 
         WeatherCondition Condition { get; set; }
     }
