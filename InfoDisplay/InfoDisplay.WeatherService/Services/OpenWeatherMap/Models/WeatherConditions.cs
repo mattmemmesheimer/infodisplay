@@ -16,7 +16,12 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
         public string Description
         {
             get { return _description; }
-            set { SetProperty(ref _description, value); }
+            set
+            {
+                // Capitalize first letter and append '.'.
+                value = char.ToUpper(value[0]) + value.Substring(1) + '.';
+                SetProperty(ref _description, value);
+            }
         }
 
         public WeatherCondition Condition

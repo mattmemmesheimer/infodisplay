@@ -17,13 +17,13 @@
     <Grid Background="LightSlateGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="30*" />
-            <RowDefinition Height="70*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="25" />
             </Grid.ColumnDefinitions>
             <Viewbox>
                 <TextBlock
@@ -40,8 +40,11 @@
                 Color="White" />
             
             <Button
-                Grid.Column="2"
+                Grid.Column="1"
+                Width="25"
                 Height="25"
+                Margin="0,5,5,0"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Command="{Binding RefreshCommand}"
                 Visibility="{Binding Loading, Converter={StaticResource InverseBoolVisibilityConverter}}">
@@ -58,7 +61,7 @@
 
             <userControls:LoadingSpinner
                 Visibility="{Binding Loading, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                Grid.Column="2"
+                Grid.Column="1"
                 Color="White"
                 InnerCircleRadius="5"
                 OuterCircleRadius="10"
@@ -66,9 +69,20 @@
                 SpokeThickness="3"
                 Width="25"
                 Height="25"
-                Margin="0,2,0,0"
-                VerticalAlignment="Top"/>
+                Margin="0,7,5,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right" />
 
+        </Grid>
+        <Grid
+            Grid.Row="1">
+            <Viewbox>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Text="{Binding Results.Conditions[0].Description, FallbackValue=Sky is clear.}" />
+            </Viewbox>
         </Grid>
     </Grid>
 </UserControl>
