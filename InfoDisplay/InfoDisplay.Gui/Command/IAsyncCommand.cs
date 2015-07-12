@@ -5,7 +5,7 @@ namespace InfoDisplay.Gui.Command
 {
     /// <summary>
     /// Defines an interface for an asynchronous <see cref="ICommand"/>, enforcing the constraint
-    /// that the generic type T is an object (and therefore note a value type).
+    /// that the generic type T is an object (and therefore not a value type).
     /// </summary>
     public interface IAsyncCommand : IAsyncCommand<object>
     {
