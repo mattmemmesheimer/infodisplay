@@ -84,5 +84,14 @@
                     Text="{Binding Results.Conditions[0].Description, FallbackValue=Sky is clear.}" />
             </Viewbox>
         </Grid>
+        <Grid
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+        </Grid>
     </Grid>
 </UserControl>

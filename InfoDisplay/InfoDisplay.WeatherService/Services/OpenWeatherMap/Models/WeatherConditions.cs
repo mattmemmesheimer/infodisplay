@@ -1,4 +1,5 @@
-﻿using InfoDisplay.WeatherService.Models;
+﻿using InfoDisplay.Common.Util;
+using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
 
 namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
@@ -19,7 +20,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set
             {
                 // Capitalize first letter and append '.'.
-                value = char.ToUpper(value[0]) + value.Substring(1) + '.';
+                value = value.UppercaseFirstLetter() + '.';
                 SetProperty(ref _description, value);
             }
         }

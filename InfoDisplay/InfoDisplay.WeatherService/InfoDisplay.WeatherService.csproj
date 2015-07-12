@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWeatherService.cs" />
+    <Compile Include="Models\IForecastResults.cs" />
     <Compile Include="Models\IWeather.cs" />
     <Compile Include="Models\IWeatherConditions.cs" />
     <Compile Include="Models\IWeatherResults.cs" />
