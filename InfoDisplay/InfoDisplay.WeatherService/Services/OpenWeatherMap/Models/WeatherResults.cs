@@ -1,4 +1,5 @@
-﻿using InfoDisplay.Common.Util;
+﻿using System;
+using InfoDisplay.Common.Util;
 using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
 using Newtonsoft.Json;
@@ -30,8 +31,17 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _current, value); }
         }
 
+        [JsonProperty(PropertyName = "dt")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTime Date
+        {
+            get { return _date; }
+            set { SetProperty(ref _date, value); }
+        }
+
         private string _name;
         private IWeatherConditions[] _conditions;
         private IWeather _current;
+        private DateTime _date;
     }
 }

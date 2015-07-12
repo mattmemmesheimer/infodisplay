@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace InfoDisplay.WeatherService.Models
 {
@@ -10,6 +10,8 @@ namespace InfoDisplay.WeatherService.Models
         IWeatherConditions[] Conditions { get; set; }
 
         IWeather Current { get; set; }
+
+        DateTime Date { get; set; }
     }
 
 }

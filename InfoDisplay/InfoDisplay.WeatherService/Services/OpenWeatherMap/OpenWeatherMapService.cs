@@ -32,6 +32,11 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
             return JsonConvert.DeserializeObject<WeatherResults>(json);
         }
 
+        public Task<IForecastResults> GetForecastAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         private string GetUrl(WeatherAction action, string zip)
         {
             string actionStr = string.Empty;
