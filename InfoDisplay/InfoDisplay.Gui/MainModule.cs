@@ -6,8 +6,16 @@ using Microsoft.Practices.Unity;
 
 namespace InfoDisplay.Gui
 {
+    /// <summary>
+    /// Main module.
+    /// </summary>
     public class MainModule : IModule
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="container">Unity container.</param>
+        /// <param name="regionManager">Region manager.</param>
         public MainModule(IUnityContainer container, IRegionManager regionManager)
         {
             _container = container;
@@ -26,7 +34,11 @@ namespace InfoDisplay.Gui
             _regionManager.RegisterViewWithRegion("MainRegion", typeof (InfoDisplayContainer));
         }
 
+        #region Fields
+
         private readonly IUnityContainer _container;
         private readonly IRegionManager _regionManager;
+
+        #endregion
     }
 }
