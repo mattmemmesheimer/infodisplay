@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:userControls="clr-namespace:InfoDisplay.Gui.UserControls"
              xmlns:converters="clr-namespace:InfoDisplay.Gui.Converters"
              mc:Ignorable="d" 
@@ -13,7 +14,13 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter" />
     </UserControl.Resources>
-    
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding RefreshCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid Background="LightSlateGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="30*" />
