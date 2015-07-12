@@ -4,16 +4,24 @@ using Microsoft.Practices.Prism.Mvvm;
 
 namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 {
+    /// <summary>
+    /// Concrete implementation of <see cref="IWeatherConditions"/> for Open Weather Map service.
+    /// </summary>
     public class WeatherConditions : BindableBase, IWeatherConditions
     {
+        #region Properties
+
+        /// <see cref="IWeatherConditions.Id"/>
         public int Id { get; set; }
 
+        /// <see cref="IWeatherConditions.Main"/>
         public string Main
         {
             get { return _main; }
             set { SetProperty(ref _main, value); }
         }
 
+        /// <see cref="IWeatherConditions.Description"/>
         public string Description
         {
             get { return _description; }
@@ -25,12 +33,14 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             }
         }
 
+        /// <see cref="IWeatherConditions.Condition"/>
         public WeatherCondition Condition
         {
             get { return _condition; }
             set { SetProperty(ref _condition, value); }
         }
 
+        /// <see cref="IWeatherConditions.Icon"/>
         public string Icon
         {
             get { return _icon; }
@@ -40,6 +50,8 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
                 Condition = StringToWeatherCondition(value);
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Based on the condition codes described in the OpenWeatherMap API documentation:
@@ -90,9 +102,13 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             return condition;
         }
 
+        #region Fields
+
         private string _main;
         private string _description;
         private string _icon;
         private WeatherCondition _condition;
+
+        #endregion
     }
 }

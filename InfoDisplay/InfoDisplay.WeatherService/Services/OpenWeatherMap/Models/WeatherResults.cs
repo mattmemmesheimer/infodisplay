@@ -7,8 +7,14 @@ using Newtonsoft.Json;
 
 namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 {
+    /// <summary>
+    /// Concrete implementation of <see cref="IWeatherResults"/> for Open Weather Map service.
+    /// </summary>
     public class WeatherResults : BindableBase, IWeatherResults
     {
+        #region Properties
+
+        /// <see cref="IWeatherResults.Name"/>
         [JsonProperty(PropertyName = "name")]
         public string Name
         {
@@ -16,6 +22,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _name, value); }
         }
 
+        /// <see cref="IWeatherResults.Conditions"/>
         [JsonProperty(PropertyName = "weather")]
         [JsonConverter(typeof(ConcreteTypeConverter<WeatherConditions[]>))]
         public IWeatherConditions[] Conditions
@@ -24,6 +31,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _conditions, value); }
         }
 
+        /// <see cref="IWeatherResults.Main"/>
         [JsonProperty(PropertyName = "main")]
         [JsonConverter(typeof(ConcreteTypeConverter<Weather>))]
         public IWeather Main
@@ -32,6 +40,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _main, value); }
         }
 
+        /// <see cref="IWeatherResults.Date"/>
         [JsonProperty(PropertyName = "dt")]
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime Date
@@ -40,9 +49,15 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _date, value); }
         }
 
+        #endregion
+
+        #region Fields
+
         private string _name;
         private IWeatherConditions[] _conditions;
         private IWeather _main;
         private DateTime _date;
+
+        #endregion
     }
 }
