@@ -7,9 +7,13 @@ using InfoDisplay.WeatherService.Models;
 
 namespace InfoDisplay.Gui.Converters
 {
-
+    /// <summary>
+    /// Converts between a <see cref="WeatherCondition"/> and a 
+    /// <see cref="ControlTemplate"/> weather icon.
+    /// </summary>
     public class WeatherConditionIconConverter : IValueConverter
     {
+        /// <see cref="IValueConverter.Convert"/>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var condition = (WeatherCondition) value;
@@ -52,6 +56,7 @@ namespace InfoDisplay.Gui.Converters
             return (ControlTemplate) resources[key];
         }
 
+        /// <see cref="IValueConverter.ConvertBack"/>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return Binding.DoNothing;
