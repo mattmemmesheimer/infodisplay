@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace InfoDisplay.Common.Util
+namespace InfoDisplay.Common.Util.Json
 {
-    public class ConcreteTypeConverter<TConcrete> : JsonConverter
+    public class UnixDateTimeConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
@@ -12,7 +12,8 @@ namespace InfoDisplay.Common.Util
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return serializer.Deserialize<TConcrete>(reader);
+            var timestamp = serializer.Deserialize<int>(reader);
+            return DateTimeExtensions.FromUnixTimestamp(timestamp);
         }
 
         public override bool CanConvert(Type objectType)

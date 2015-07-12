@@ -1,5 +1,6 @@
 ﻿using System;
 using InfoDisplay.Common.Util;
+using InfoDisplay.Common.Util.Json;
 using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
 using Newtonsoft.Json;

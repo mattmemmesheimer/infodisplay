@@ -1,4 +1,5 @@
 ﻿using InfoDisplay.Common.Util;
+using InfoDisplay.Common.Util.Json;
 using InfoDisplay.WeatherService.Models;
 using Newtonsoft.Json;
 
