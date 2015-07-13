@@ -12,7 +12,7 @@ namespace InfoDisplay.WeatherService
         /// Asynchronously retrieves the current weather information.
         /// </summary>
         /// <returns>The current weather information.</returns>
-        Task<IWeatherResults> GetWeatherAsync();
+        Task<ICurrentWeatherResult> GetWeatherAsync();
 
         /// <summary>
         /// Asynchronously retrieves weather forecast information.

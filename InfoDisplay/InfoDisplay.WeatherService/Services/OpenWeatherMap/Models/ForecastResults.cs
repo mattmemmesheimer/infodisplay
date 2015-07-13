@@ -13,8 +13,8 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 
         /// <see cref="IForecastResults.Days"/>
         [JsonProperty(PropertyName = "list")]
-        [JsonConverter(typeof(ConcreteTypeConverter<WeatherResults[]>))]
-        public IWeatherResults[] Days { get; set; }
+        [JsonConverter(typeof(ConcreteTypeConverter<ForecastResult[]>))]
+        public IForecastResult[] Days { get; set; }
 
         #endregion
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using InfoDisplay.Common.Util;
 using InfoDisplay.Common.Util.Json;
 using InfoDisplay.WeatherService.Models;
 using Microsoft.Practices.Prism.Mvvm;
@@ -8,21 +7,13 @@ using Newtonsoft.Json;
 namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 {
     /// <summary>
-    /// Concrete implementation of <see cref="IWeatherResults"/> for Open Weather Map service.
+    /// Abstract class defining weather result sets.
     /// </summary>
-    public class WeatherResults : BindableBase, IWeatherResults
+    public abstract class WeatherResult : BindableBase, IWeatherResult
     {
         #region Properties
 
-        /// <see cref="IWeatherResults.Name"/>
-        [JsonProperty(PropertyName = "name")]
-        public string Name
-        {
-            get { return _name; }
-            set { SetProperty(ref _name, value); }
-        }
-
-        /// <see cref="IWeatherResults.Conditions"/>
+        /// <see cref="IWeatherResult.Conditions"/>
         [JsonProperty(PropertyName = "weather")]
         [JsonConverter(typeof(ConcreteTypeConverter<WeatherConditions[]>))]
         public IWeatherConditions[] Conditions
@@ -31,16 +22,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
             set { SetProperty(ref _conditions, value); }
         }
 
-        /// <see cref="IWeatherResults.Main"/>
-        [JsonProperty(PropertyName = "main")]
-        [JsonConverter(typeof(ConcreteTypeConverter<Weather>))]
-        public IWeather Main
-        {
-            get { return _main; }
-            set { SetProperty(ref _main, value); }
-        }
-
-        /// <see cref="IWeatherResults.Date"/>
+        /// <see cref="IWeatherResult.Date"/>
         [JsonProperty(PropertyName = "dt")]
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime Date
@@ -53,9 +35,7 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap.Models
 
         #region Fields
 
-        private string _name;
         private IWeatherConditions[] _conditions;
-        private IWeather _main;
         private DateTime _date;
 
         #endregion

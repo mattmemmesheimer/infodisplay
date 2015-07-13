@@ -15,7 +15,7 @@ namespace InfoDisplay.Gui.ViewModels
         #region Properties
 
         /// <see cref="IWeatherViewModel.Current" />
-        public IWeatherResults Current
+        public ICurrentWeatherResult Current
         {
             get { return _current; }
             set { SetProperty(ref _current, value); }
@@ -63,7 +63,7 @@ namespace InfoDisplay.Gui.ViewModels
 
         private double _temperature;
         private IWeatherService _weatherService;
-        private IWeatherResults _current;
+        private ICurrentWeatherResult _current;
         private IForecastResults _forecast;
         private bool _loading;
 

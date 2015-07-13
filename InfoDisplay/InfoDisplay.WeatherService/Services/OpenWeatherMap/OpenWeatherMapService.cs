@@ -42,11 +42,11 @@ namespace InfoDisplay.WeatherService.Services.OpenWeatherMap
         }
 
         /// <see cref="IWeatherService.GetWeatherAsync"/>
-        public async Task<IWeatherResults> GetWeatherAsync()
+        public async Task<ICurrentWeatherResult> GetWeatherAsync()
         {
             var url = GetUrl(WeatherAction.Current, "78759");
             var json = await _networkService.GetStringAsync(url);
-            return JsonConvert.DeserializeObject<WeatherResults>(json);
+            return JsonConvert.DeserializeObject<CurrentWeatherResult>(json);
         }
 
         /// <see cref="IWeatherService.GetForecastAsync"/>

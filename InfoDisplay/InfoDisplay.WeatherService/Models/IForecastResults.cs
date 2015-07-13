@@ -8,7 +8,7 @@
         /// <summary>
         /// Days of the forecast.
         /// </summary>
-        IWeatherResults[] Days { get; set; }
+        IForecastResult[] Days { get; set; }
     }
 
 }

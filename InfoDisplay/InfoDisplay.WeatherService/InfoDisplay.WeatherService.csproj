@@ -55,15 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWeatherService.cs" />
+    <Compile Include="Models\IForecastResult.cs" />
     <Compile Include="Models\IForecastResults.cs" />
+    <Compile Include="Models\IForecastTemperature.cs" />
     <Compile Include="Models\IWeather.cs" />
     <Compile Include="Models\IWeatherConditions.cs" />
-    <Compile Include="Models\IWeatherResults.cs" />
+    <Compile Include="Models\ICurrentWeatherResult.cs" />
+    <Compile Include="Models\IWeatherResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\ForecastResult.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\ForecastResults.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\ForecastTemperature.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\Weather.cs" />
     <Compile Include="Services\OpenWeatherMap\Models\WeatherConditions.cs" />
-    <Compile Include="Services\OpenWeatherMap\Models\WeatherResults.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\CurrentWeatherResult.cs" />
+    <Compile Include="Services\OpenWeatherMap\Models\WeatherResult.cs" />
     <Compile Include="Services\OpenWeatherMap\OpenWeatherMapService.cs" />
   </ItemGroup>
   <ItemGroup>

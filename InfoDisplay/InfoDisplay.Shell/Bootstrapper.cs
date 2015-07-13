@@ -38,7 +38,7 @@ namespace InfoDisplay.Shell
             Container.RegisterType<INetworkService, HttpNetworkService>();
             Container.RegisterType<IWeatherService, OpenWeatherMapService>();
 
-            Container.RegisterType<IWeatherResults, WeatherResults>();
+            Container.RegisterType<ICurrentWeatherResult, CurrentWeatherResult>();
         }
 
         /// <see cref="UnityBootstrapper.ConfigureModuleCatalog" />

@@ -12,7 +12,7 @@ namespace InfoDisplay.Gui.ViewModels
         /// <summary>
         /// Current weather information.
         /// </summary>
-        IWeatherResults Current { get; set; }
+        ICurrentWeatherResult Current { get; set; }
 
         /// <summary>
         /// Forecasted weather information.
