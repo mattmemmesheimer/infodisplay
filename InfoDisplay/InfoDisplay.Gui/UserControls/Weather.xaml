@@ -98,7 +98,15 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            
+            <userControls:WeatherForecastDay
+                Grid.Column="0"
+                DataContext="{Binding Forecast.Days[1]}" />
+            <userControls:WeatherForecastDay
+                Grid.Column="1"
+                DataContext="{Binding Forecast.Days[2]}" />
+            <userControls:WeatherForecastDay
+                Grid.Column="2"
+                DataContext="{Binding Forecast.Days[3]}" />
         </Grid>
     </Grid>
 </UserControl>

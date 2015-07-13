@@ -115,6 +115,9 @@
     <Compile Include="UserControls\Weather.xaml.cs">
       <DependentUpon>Weather.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\WeatherForecastDay.xaml.cs">
+      <DependentUpon>WeatherForecastDay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\InfoDisplayContainerViewModel.cs" />
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Weather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\WeatherForecastDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
