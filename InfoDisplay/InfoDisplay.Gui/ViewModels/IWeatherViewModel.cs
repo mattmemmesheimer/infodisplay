@@ -5,7 +5,7 @@ using InfoDisplay.WeatherService.Models;
 namespace InfoDisplay.Gui.ViewModels
 {
     /// <summary>
-    /// Defines an interface for the WetherViewModel.
+    /// Defines an interface for the WeatherViewModel.
     /// </summary>
     public interface IWeatherViewModel
     {
