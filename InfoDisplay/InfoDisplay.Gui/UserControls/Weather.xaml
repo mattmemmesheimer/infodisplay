@@ -29,9 +29,11 @@
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="45*" />
+                <ColumnDefinition Width="45*" />
+                <ColumnDefinition Width="10*" MaxWidth="50" />
             </Grid.ColumnDefinitions>
+            
             <Viewbox>
                 <TextBlock
                     Margin="6,0"
@@ -46,39 +48,36 @@
                     FallbackValue={StaticResource WeatherDayClearIcon}}"
                 Color="White" />
             
-            <Button
-                Grid.Column="1"
-                Width="25"
-                Height="25"
-                Margin="0,5,5,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Command="{Binding RefreshCommand}"
-                Visibility="{Binding Loading, Converter={StaticResource InverseBoolVisibilityConverter}}">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Grid Cursor="Hand" Background="Transparent">
-                            <userControls:VectorImage
-                                Color="White"
-                                Template="{StaticResource RefreshIcon}" />
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <userControls:LoadingSpinner
-                Visibility="{Binding Loading, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
-                Grid.Column="1"
-                Color="White"
-                InnerCircleRadius="5"
-                OuterCircleRadius="10"
-                Spokes="8"
-                SpokeThickness="3"
-                Width="25"
-                Height="25"
-                Margin="0,7,5,0"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right" />
+            <Grid Grid.Column="2">
+                <Viewbox VerticalAlignment="Top">
+                    <Grid>
+                        <Button
+	                        Command="{Binding RefreshCommand}"
+	                        Visibility="{Binding Loading, Converter={StaticResource InverseBoolVisibilityConverter}}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Grid Cursor="Hand" Background="Transparent">
+                                        <userControls:VectorImage
+					                        Color="White"
+					                        Template="{StaticResource RefreshIcon}" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <userControls:LoadingSpinner
+                            Visibility="{Binding Loading, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"
+                            Color="White"
+                            InnerCircleRadius="5"
+                            OuterCircleRadius="10"
+                            Spokes="8"
+                            SpokeThickness="3"
+                            Width="25"
+                            Height="25"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right" />
+                    </Grid>
+                </Viewbox>
+            </Grid>
 
         </Grid>
         <Grid
