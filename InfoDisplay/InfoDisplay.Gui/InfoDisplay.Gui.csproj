@@ -111,6 +111,9 @@
     <Compile Include="UserControls\LoadingSpinner.xaml.cs">
       <DependentUpon>LoadingSpinner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SystemStats.xaml.cs">
+      <DependentUpon>SystemStats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VectorImage.cs" />
     <Compile Include="UserControls\Weather.xaml.cs">
       <DependentUpon>Weather.xaml</DependentUpon>
@@ -119,7 +122,9 @@
       <DependentUpon>WeatherForecastDay.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\InfoDisplayContainerViewModel.cs" />
+    <Compile Include="ViewModels\ISystemStatsViewModel.cs" />
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
+    <Compile Include="ViewModels\SystemStatsViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
     <Page Include="Assets\Includes.xaml">
       <SubType>Designer</SubType>
@@ -150,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SystemStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

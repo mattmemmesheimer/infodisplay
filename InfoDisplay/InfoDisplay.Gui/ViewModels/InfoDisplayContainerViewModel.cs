@@ -1,5 +1,5 @@
-﻿using InfoDisplay.Gui.UserControls;
-using Microsoft.Practices.Prism.Mvvm;
+﻿using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Unity;
 
 namespace InfoDisplay.Gui.ViewModels
 {
@@ -11,19 +11,25 @@ namespace InfoDisplay.Gui.ViewModels
         #region Properties
 
         /// <summary>
-        /// View model for the <see cref="Weather"/> view.
+        /// View model for a weather view.
         /// </summary>
         public IWeatherViewModel WeatherViewModel { get; set; }
+
+        /// <summary>
+        /// View model for a system stats view.
+        /// </summary>
+        public ISystemStatsViewModel SystemStatsViewModel { get; set; }
 
         #endregion
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="weatherViewModel">Weather view model.</param>
-        public InfoDisplayContainerViewModel(IWeatherViewModel weatherViewModel)
+        /// <param name="container">Unity container.</param>
+        public InfoDisplayContainerViewModel(IUnityContainer container)
         {
-            WeatherViewModel = weatherViewModel;
+            WeatherViewModel = container.Resolve<IWeatherViewModel>();
+            SystemStatsViewModel = container.Resolve<ISystemStatsViewModel>();
         }
     }
 }
