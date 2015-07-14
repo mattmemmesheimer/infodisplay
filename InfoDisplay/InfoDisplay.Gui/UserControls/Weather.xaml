@@ -21,7 +21,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Grid Background="LightSlateGray">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*" />
             <RowDefinition Height="10*" />

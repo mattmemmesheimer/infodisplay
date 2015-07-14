@@ -29,6 +29,7 @@ namespace InfoDisplay.Gui
         {
             _container.RegisterType<Weather>();
             _container.RegisterType<IWeatherViewModel, WeatherViewModel>();
+            _container.RegisterType<ISystemStatsViewModel, SystemStatsViewModel>();
             _container.RegisterType<InfoDisplayContainerViewModel>();
 
             _regionManager.RegisterViewWithRegion("MainRegion", typeof (InfoDisplayContainer));

@@ -6,7 +6,46 @@
              xmlns:userControls="clr-namespace:InfoDisplay.Gui.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="500">
-    <Grid>
-        <userControls:Weather DataContext="{Binding WeatherViewModel}" />
+    <Grid Background="#003672">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Border
+            Background="#094EB6"
+            Margin="5">
+            <userControls:Weather 
+                Margin="20"
+                DataContext="{Binding WeatherViewModel}" />
+        </Border>
+
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            Background="#009E01"
+            Margin="5">
+            <userControls:SystemStats 
+                Margin="20"
+                DataContext="{Binding SystemStatsViewModel}" />
+        </Border>
+
+        <Border
+            Grid.Row="1"
+            Grid.Column="0"
+            Background="#DA542E"
+            Margin="5">
+        </Border>
+
+        <Border
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="#5E3AB8"
+            Margin="5">
+        </Border>
     </Grid>
 </UserControl>
