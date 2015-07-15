@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.WeatherService"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.Shell", "InfoDisplay.Shell\InfoDisplay.Shell.csproj", "{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoDisplay.SystemStatsService", "InfoDisplay.SystemStatsService\InfoDisplay.SystemStatsService.csproj", "{64C6DBF4-53CE-4CEB-BFB1-5367DAE02B61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC7ECCF-342D-4327-B531-5CFC1EAA796F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C6DBF4-53CE-4CEB-BFB1-5367DAE02B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C6DBF4-53CE-4CEB-BFB1-5367DAE02B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C6DBF4-53CE-4CEB-BFB1-5367DAE02B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C6DBF4-53CE-4CEB-BFB1-5367DAE02B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using InfoDisplay.Gui.Command;
@@ -33,26 +35,21 @@ namespace InfoDisplay.Gui.ViewModels
         public async Task GetSystemStatsAsync()
         {
             TotalCpuUsage = "Loading...";
-            TotalCpuUsage = await Task.Factory.StartNew(() => GetTotalCpuUsage());
+            var usage = await Task.Factory.StartNew(() => GetTotalCpuUsage());
+            TotalCpuUsage = string.Format("{0}%", usage);
         }
 
-        private string GetTotalCpuUsage()
+        public UInt64 GetTotalCpuUsage()
         {
-            var searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
-            var cpuTimes = searcher.Get()
-                .Cast<ManagementObject>()
-                .Select(mo => new
-                {
-                    Name = mo["Name"],
-                    Usage = mo["PercentProcessorTime"]
-                }
-                )
-                .ToList();
-            //The '_Total' value represents the average usage across all cores,
-            //and is the best representation of overall CPU usage
-            var query = cpuTimes.Where(x => x.Name.ToString() == "_Total").Select(x => x.Usage);
-            var cpuUsage = query.SingleOrDefault();
-            return cpuUsage.ToString();
+            var counter = new PerformanceCounter
+            {
+                CategoryName = "Processor",
+                CounterName = "% Processor Time",
+                InstanceName = "_Total"
+            };
+            counter.NextValue();
+            Thread.Sleep(1000);
+            return (UInt64) counter.NextValue();
         }
 
         #region Fields
