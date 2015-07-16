@@ -1,6 +1,9 @@
 ﻿using System.Windows;
 using InfoDisplay.Common.Network;
 using InfoDisplay.Gui;
+using InfoDisplay.SystemStatsService;
+using InfoDisplay.SystemStatsService.Models;
+using InfoDisplay.SystemStatsService.Services;
 using InfoDisplay.WeatherService;
 using InfoDisplay.WeatherService.Models;
 using InfoDisplay.WeatherService.Services.OpenWeatherMap;
@@ -37,6 +40,8 @@ namespace InfoDisplay.Shell
 
             Container.RegisterType<INetworkService, HttpNetworkService>();
             Container.RegisterType<IWeatherService, OpenWeatherMapService>();
+            Container.RegisterType<ISystemStatsService, SystemStatsService.Services.SystemStatsService>();
+            Container.RegisterType<IProcessorStatsService, ProcessorStatsService>();
 
             Container.RegisterType<ICurrentWeatherResult, CurrentWeatherResult>();
         }

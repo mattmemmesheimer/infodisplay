@@ -138,6 +138,10 @@
       <Project>{6ec96444-62e0-4d69-b580-c48d9913df66}</Project>
       <Name>InfoDisplay.Gui</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InfoDisplay.SystemStatsService\InfoDisplay.SystemStatsService.csproj">
+      <Project>{64c6dbf4-53ce-4ceb-bfb1-5367dae02b61}</Project>
+      <Name>InfoDisplay.SystemStatsService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InfoDisplay.WeatherService\InfoDisplay.WeatherService.csproj">
       <Project>{80da573c-f875-42a5-b900-54002589037f}</Project>
       <Name>InfoDisplay.WeatherService</Name>

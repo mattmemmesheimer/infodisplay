@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using InfoDisplay.Gui.Command;
+using InfoDisplay.SystemStatsService;
 using Microsoft.Practices.Prism.Mvvm;
 
 namespace InfoDisplay.Gui.ViewModels
@@ -27,34 +28,23 @@ namespace InfoDisplay.Gui.ViewModels
 
         #endregion
 
-        public SystemStatsViewModel()
+        public SystemStatsViewModel(ISystemStatsService systemStatsService)
         {
+            _systemStatsService = systemStatsService;
             RefreshCommand = new AwaitableDelegateCommand(GetSystemStatsAsync);
         }
 
         public async Task GetSystemStatsAsync()
         {
             TotalCpuUsage = "Loading...";
-            var usage = await Task.Factory.StartNew(() => GetTotalCpuUsage());
-            TotalCpuUsage = string.Format("{0}%", usage);
-        }
-
-        public UInt64 GetTotalCpuUsage()
-        {
-            var counter = new PerformanceCounter
-            {
-                CategoryName = "Processor",
-                CounterName = "% Processor Time",
-                InstanceName = "_Total"
-            };
-            counter.NextValue();
-            Thread.Sleep(1000);
-            return (UInt64) counter.NextValue();
+            var stats = await _systemStatsService.Processor.GetStatsAsync();
+            TotalCpuUsage = string.Format("{0}%", stats.TotalUsage);
         }
 
         #region Fields
 
         private string _totalCpuUsage;
+        private readonly ISystemStatsService _systemStatsService;
 
         #endregion
     }

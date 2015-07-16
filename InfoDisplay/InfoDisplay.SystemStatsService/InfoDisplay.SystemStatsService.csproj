@@ -55,6 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ProcessorStats.cs" />
     <Compile Include="Services\IProcessorStatsService.cs" />
+    <Compile Include="Services\ProcessorStatsService.cs" />
+    <Compile Include="Services\SystemStatsService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
