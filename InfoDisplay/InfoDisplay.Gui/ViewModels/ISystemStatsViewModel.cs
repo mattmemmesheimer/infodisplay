@@ -8,8 +8,6 @@ namespace InfoDisplay.Gui.ViewModels
     /// </summary>
     public interface ISystemStatsViewModel
     {
-        Task GetSystemStatsAsync();
-
         ICommand RefreshCommand { get; }
     }
 }

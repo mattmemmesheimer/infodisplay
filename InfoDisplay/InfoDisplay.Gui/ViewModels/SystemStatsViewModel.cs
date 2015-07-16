@@ -5,8 +5,10 @@ using System.Management;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Threading;
 using InfoDisplay.Gui.Command;
 using InfoDisplay.SystemStatsService;
+using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 
 namespace InfoDisplay.Gui.ViewModels
@@ -16,6 +18,12 @@ namespace InfoDisplay.Gui.ViewModels
     /// </summary>
     public class SystemStatsViewModel : BindableBase, ISystemStatsViewModel
     {
+        #region Constants
+
+        private const uint ProcessorServiceRefreshIntervalMs = 25;
+
+        #endregion
+
         #region Properties
 
         public string TotalCpuUsage
@@ -31,20 +39,38 @@ namespace InfoDisplay.Gui.ViewModels
         public SystemStatsViewModel(ISystemStatsService systemStatsService)
         {
             _systemStatsService = systemStatsService;
-            RefreshCommand = new AwaitableDelegateCommand(GetSystemStatsAsync);
+            RefreshCommand = new DelegateCommand(Start);
+
+            _processorServiceTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(ProcessorServiceRefreshIntervalMs)
+            };
+            _processorServiceTimer.Tick += ProcessorServiceTimerTick;
         }
 
-        public async Task GetSystemStatsAsync()
+        private void Start()
         {
-            TotalCpuUsage = "Loading...";
+            _processorServiceTimer.Start();
+        }
+
+        private async void ProcessorServiceTimerTick(object sender, EventArgs e)
+        {
+            await GetSystemStatsAsync();
+        }
+
+        private async Task GetSystemStatsAsync()
+        {
+            _processorServiceTimer.Stop();
             var stats = await _systemStatsService.Processor.GetStatsAsync();
             TotalCpuUsage = string.Format("{0}%", stats.TotalUsage);
+            _processorServiceTimer.Start();
         }
 
         #region Fields
 
         private string _totalCpuUsage;
         private readonly ISystemStatsService _systemStatsService;
+        private readonly DispatcherTimer _processorServiceTimer;
 
         #endregion
     }
