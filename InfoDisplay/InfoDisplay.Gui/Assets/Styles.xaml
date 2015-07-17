@@ -1,4 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
+    <ControlTemplate x:Key="FlatProgressBar" TargetType="{x:Type ProgressBar}">
+        <Grid>
+            <Border 
+                x:Name="PART_Track"
+                Opacity="0.4"
+                Background="{TemplateBinding BorderBrush}" 
+                BorderBrush="{x:Null}" />
+            <Border 
+                x:Name="PART_Indicator" 
+                HorizontalAlignment="Left" 
+                Background="{TemplateBinding Background}" 
+                BorderBrush="{x:Null}" />
+        </Grid>
+    </ControlTemplate>
 </ResourceDictionary>

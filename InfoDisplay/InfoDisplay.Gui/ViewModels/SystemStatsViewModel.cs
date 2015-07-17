@@ -26,7 +26,7 @@ namespace InfoDisplay.Gui.ViewModels
 
         #region Properties
 
-        public string TotalCpuUsage
+        public double TotalCpuUsage
         {
             get { return _totalCpuUsage; }
             set { SetProperty(ref _totalCpuUsage, value); }
@@ -62,13 +62,13 @@ namespace InfoDisplay.Gui.ViewModels
         {
             _processorServiceTimer.Stop();
             var stats = await _systemStatsService.Processor.GetStatsAsync();
-            TotalCpuUsage = string.Format("{0}%", stats.TotalUsage);
+            TotalCpuUsage = Convert.ToDouble(stats.TotalUsage);
             _processorServiceTimer.Start();
         }
 
         #region Fields
 
-        private string _totalCpuUsage;
+        private double _totalCpuUsage;
         private readonly ISystemStatsService _systemStatsService;
         private readonly DispatcherTimer _processorServiceTimer;
 

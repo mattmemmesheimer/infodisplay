@@ -14,9 +14,31 @@
     </i:Interaction.Triggers>
     
     <Grid>
-        <TextBlock 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="40*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Viewbox
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Text="{Binding TotalCpuUsage, FallbackValue=Not set.}" />
+            VerticalAlignment="Center">
+            <TextBlock
+                Text="CPU %"
+                Foreground="White" />
+        </Viewbox>
+        <ProgressBar
+            Grid.Row="0"
+            Grid.Column="2"
+            Minimum="0" 
+            Maximum="100"
+            Height="25" 
+            Value="{Binding TotalCpuUsage}"
+            BorderBrush="White"
+            Background="White"
+            Template="{StaticResource FlatProgressBar}" />
     </Grid>
 </UserControl>
