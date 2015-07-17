@@ -71,6 +71,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.ObjectModel" />
     <Reference Include="System.Runtime" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -102,6 +103,7 @@
     <Compile Include="PrismAppShell.xaml.cs">
       <DependentUpon>PrismAppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrismAppShellViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

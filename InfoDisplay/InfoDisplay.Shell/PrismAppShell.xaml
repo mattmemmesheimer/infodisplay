@@ -2,7 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://www.codeplex.com/CompositeWPF"
-        Title="PrismAppShell" Height="300" Width="300">
+        Title="PrismAppShell" Height="300" Width="300"
+        KeyUp="Window_OnKeyUp"
+        WindowStyle="{Binding WindowStyle}"  
+        WindowState="{Binding WindowState}">
     <Grid>
         <ContentControl
             prism:RegionManager.RegionName="MainRegion" />
