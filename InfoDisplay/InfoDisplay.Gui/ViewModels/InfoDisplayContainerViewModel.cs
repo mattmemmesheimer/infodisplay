@@ -20,6 +20,11 @@ namespace InfoDisplay.Gui.ViewModels
         /// </summary>
         public ISystemStatsViewModel SystemStatsViewModel { get; set; }
 
+        /// <summary>
+        /// View model for a clock view.
+        /// </summary>
+        public ClockViewModel ClockViewModel { get; set; }
+
         #endregion
 
         /// <summary>
@@ -30,6 +35,7 @@ namespace InfoDisplay.Gui.ViewModels
         {
             WeatherViewModel = container.Resolve<IWeatherViewModel>();
             SystemStatsViewModel = container.Resolve<ISystemStatsViewModel>();
+            ClockViewModel = container.Resolve<ClockViewModel>();
         }
     }
 }

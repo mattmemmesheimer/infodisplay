@@ -39,6 +39,9 @@
             Grid.Column="0"
             Background="#DA542E"
             Margin="5">
+            <userControls:Clock
+                Margin="20"
+                DataContext="{Binding ClockViewModel}" />
         </Border>
 
         <Border

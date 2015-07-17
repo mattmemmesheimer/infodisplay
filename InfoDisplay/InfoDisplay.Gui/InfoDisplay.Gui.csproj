@@ -122,6 +122,7 @@
     <Compile Include="UserControls\WeatherForecastDay.xaml.cs">
       <DependentUpon>WeatherForecastDay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ClockViewModel.cs" />
     <Compile Include="ViewModels\InfoDisplayContainerViewModel.cs" />
     <Compile Include="ViewModels\ISystemStatsViewModel.cs" />
     <Compile Include="ViewModels\IWeatherViewModel.cs" />
